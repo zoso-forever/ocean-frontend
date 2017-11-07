@@ -1,0 +1,13 @@
+last 2 versions
+
+# Desktop browsers
+last 4 Chrome versions
+last 4 Firefox versions
+last 4 Opera versions
+not ie <= 10
+Safari >= 9
+
+# Mobile browsers
+iOS >= 9
+Android >= 4.4
+ExplorerMobile >= 11
