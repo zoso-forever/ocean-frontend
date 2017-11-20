@@ -4,8 +4,9 @@
 	</section>
 </template>
 
-<style lang='stylus'>
+<style scoped lang='stylus'>
 @require '~assets/styles/global.styl'
+
 .container
 	background-color #cd9f93
 </style>

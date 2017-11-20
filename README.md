@@ -1,7 +1,5 @@
 # ocean-frontend
 
-> Nuxt.js project
-
 ## Build Setup
 
 ``` bash

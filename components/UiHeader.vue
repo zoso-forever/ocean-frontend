@@ -1,9 +1,11 @@
 <template>
 	<header>
 		<nav>
-			<nuxt-link to='/'>Главная</nuxt-link>
-			<nuxt-link to='/about'>О нас</nuxt-link>
-			<nuxt-link to='/contacts'>Контакты</nuxt-link>
+			<ul>
+				<li><nuxt-link to='/'>Главная</nuxt-link></li>
+				<li><nuxt-link to='/about'>О нас</nuxt-link></li>
+				<li><nuxt-link to='/contacts'>Контакты</nuxt-link></li>
+			</ul>
 		</nav>
 	</header>
 </template>
@@ -27,7 +29,10 @@ nav
 		&.nuxt-link-exact-active
 			color #4291c9
 
+	ul
+		display flex
+
+	li
 		&:not(:last-child)
 			margin-right 17px
-
 </style>
