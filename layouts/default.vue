@@ -1,15 +1,20 @@
 <template>
-	<div>
-		<Header />
-		<nuxt/>
+	<div class='page'>
+		<UiHeader />
+		<main class="page__content">
+			<nuxt/>
+		</main>
+		<UiFooter />
 	</div>
 </template>
 <script>
-import Header from '~/components/Header.vue'
+import UiHeader from '~/components/UiHeader.vue'
+import UiFooter from '~/components/UiFooter.vue'
 
 export default {
 	components: {
-		Header
+		UiHeader,
+		UiFooter
 	}
 }
 </script>
@@ -17,17 +22,13 @@ export default {
 <style lang='stylus'>
 @require '~assets/styles/global.styl'
 
-</style>
-<template>
+.page
+	display flex
+	flex-direction column
+	min-height 100vh
 
-</template>
+	&__content
+		flex 1 0 auto
+		position relative
 
-<script>
-export default {
-
-}
-</script>
-
-<style lang='stylus'>
-@require '~assets/styles/global.styl'
 </style>

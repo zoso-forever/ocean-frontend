@@ -1,9 +1,9 @@
 <template>
 	<header>
 		<nav>
-			<nuxt-link to='/'>Main</nuxt-link>
-			<nuxt-link to='/about'>About</nuxt-link>
-			<nuxt-link to='/contacts'>Contacts</nuxt-link>
+			<nuxt-link to='/'>Главная</nuxt-link>
+			<nuxt-link to='/about'>О нас</nuxt-link>
+			<nuxt-link to='/contacts'>Контакты</nuxt-link>
 		</nav>
 	</header>
 </template>
@@ -16,7 +16,7 @@ header
 	background-color #f5f5f5
 
 nav
-	max-width 920px
+	max-width 960px
 	margin-x auto
 
 	a
