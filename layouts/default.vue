@@ -1,20 +1,29 @@
 <template>
 	<div class='page'>
-		<UiHeader />
-		<main class="page__content">
+		<app-header />
+		<main v-bind:class='{isLoaded: loaded}'class="page__content">
 			<nuxt/>
 		</main>
-		<UiFooter />
+		<app-footer />
+		<page-loader />
 	</div>
 </template>
+
 <script>
-import UiHeader from '~/components/UiHeader.vue'
-import UiFooter from '~/components/UiFooter.vue'
+import appHeader from '~/components/app-header.vue'
+import appFooter from '~/components/app-footer.vue'
+import pageLoader from '~/components/page-loader.vue'
 
 export default {
 	components: {
-		UiHeader,
-		UiFooter
+		appHeader,
+		appFooter,
+		pageLoader
+	},
+	computed: {
+		loaded () {
+			return !this.$store.state.loading
+		}
 	}
 }
 </script>

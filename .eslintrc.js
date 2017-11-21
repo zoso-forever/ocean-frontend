@@ -3,7 +3,8 @@ module.exports = {
   parser: 'babel-eslint',
   env: {
     browser: true,
-    node: true
+	node: true,
+	es6: true
   },
   extends: 'standard',
   // required to lint *.vue files
@@ -15,5 +16,8 @@ module.exports = {
 	 "no-tabs": 0,
 	 indent: [2, 'tab']
   },
-  globals: {}
+  globals: {
+	  opts: true,
+	  vue: true
+  }
 }

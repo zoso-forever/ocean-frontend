@@ -1,7 +1,4 @@
 module.exports = {
-	/*
-	** Headers of the page
-	*/
 	head: {
 		title: 'Океан путешествий',
 		meta: [
@@ -13,20 +10,18 @@ module.exports = {
 			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
 		]
 	},
-	/*
-	** Customize the progress bar color
-	*/
-	loading: { color: '#4291c9' },
+	loading: false,
 	css: [
 		'@/assets/styles/index.styl'
 	],
-	/*
-	** Build configuration
-	*/
+	// transition: {
+	// 	mode: '',
+	// 	duration: 1000
+	// },
+	router: {
+		middleware: 'page-loader'
+	},
 	build: {
-		/*
-		** Run ESLint on save
-		*/
 		vendor: [
 			'axios'
 		],
