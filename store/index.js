@@ -1,22 +1,12 @@
 import Vuex from 'vuex'
+import moduleWindow from './window'
 
 const createStore = () => {
 	return new Vuex.Store({
-		state: {
-			counter: 0,
-			loading: false
+		modules: {
+			window: moduleWindow
 		},
-		mutations: {
-			increment (state) {
-				state.counter += 1
-			},
-			showLoader (state) {
-				state.loading = true
-			},
-			stopLoader (state) {
-				state.loading = false
-			}
-		}
+		strict: true
 	})
 }
 

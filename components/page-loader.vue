@@ -1,19 +1,150 @@
 <template>
-	<div
-		class="page-loader"
-		v-bind:class='{active: loading}'>
+	<div v-bind:class='{isEnded: isEnded}' class="page-loader">
+		<canvas class="js-canvas"/>
 	</div>
 </template>
 
 <script>
+import { TweenLite } from 'gsap'
+import eventBus from '~/utilities/eventBus'
+// import { mapState } from 'vuex'
+
 export default {
-	computed: {
-		loading () {
-			return this.$store.state.loading
+	// computed: {
+	// 	...mapState('window', [
+	// 		'width',
+	// 		'height'
+	// 	])
+	// },
+	data () {
+		return {
+			firstTime: true,
+			height: 0,
+			width: 0,
+			isEnded: false
 		}
 	},
 	created () {
-		this.$store.commit('stopLoader')
+		this.radius = 0
+		this.radius2 = 0
+
+		this.centerX = 0
+		this.centerY = 0
+
+		this.realCenterX = 0
+		this.realCenterY = 0
+
+		this.isAnim = false
+		this.circleColor2 = '#0d49a3'
+	},
+	mounted () {
+		this.$nextTick(() => {
+			setTimeout(() => {
+				this.$canvas = this.$el.querySelector('.js-canvas')
+				this.ctx = this.$canvas.getContext('2d')
+				this.height = window.innerHeight
+				this.width = window.innerWidth
+
+				window.addEventListener('mousemove', this.setCenter.bind(this), false)
+				eventBus.$on('customEvent', this.onRouteChanged)
+
+				this.resize()
+				this.load()
+			}, 200)
+		})
+	},
+	beforeDestroy () {
+		window.removeEventListener('mousemove', this._setCenter, false)
+		eventBus.$off('customEvent', this.onRouteChanged)
+	},
+	methods: {
+		onRouteChanged ({state, color}) {
+			if (state) {
+				this.circleColor2 = color || '#0d49a3'
+				this.openCircle()
+				this.request = requestAnimationFrame(this.update)
+				console.log('__CUSTOM EVENT__', state)
+			} else {
+				this.load()
+			}
+		},
+		resize () {
+			if (this.$canvas.width !== this.width || this.$canvas.height !== this.height) {
+				this.$canvas.width = this.width
+				this.$canvas.height = this.height
+			}
+
+			if (this.firstTime) {
+				this.radius = this.radius2 = this.width
+
+				this.centerX = this.width / 2
+				this.centerY = this.height / 2
+
+				this.realCenterX = this.centerX
+				this.realCenterY = this.centerY
+
+				this.ctx.beginPath()
+				this.ctx.arc(this.realCenterX, this.realCenterY, this.radius2, 0, 2 * Math.PI, false)
+				this.ctx.fillStyle = this.circleColor2
+				this.ctx.fill()
+				this.ctx.closePath()
+			}
+		},
+		setCenter (e) {
+			this.centerX = e.clientX
+			this.centerY = e.clientY
+		},
+		update () {
+			console.log('gogo')
+			if (this.isAnim) {
+				this.ctx.clearRect(0, 0, this.width, this.height)
+
+				this.ctx.beginPath()
+				this.ctx.arc(this.realCenterX, this.realCenterY, this.radius, 0, 2 * Math.PI, false)
+				this.ctx.fillStyle = '#ffffff'
+				this.ctx.fill()
+				this.ctx.closePath()
+
+				// draw second circle
+				this.ctx.beginPath()
+				this.ctx.arc(this.realCenterX, this.realCenterY, this.radius2, 0, 2 * Math.PI, false)
+				this.ctx.fillStyle = this.circleColor2
+				this.ctx.fill()
+				this.ctx.closePath()
+			}
+
+			this.request = requestAnimationFrame(this.update)
+		},
+		openCircle () {
+			this.radius = 0
+			this.radius2 = 0
+			this.isAnim = true
+			this.isEnded = false
+
+			this.realCenterX = this.centerX
+			this.realCenterY = this.centerY
+
+			const c1 = Math.pow(this.realCenterX, 2) + Math.pow(this.realCenterY, 2)
+			const c2 = Math.pow(this.width - this.realCenterX, 2) + Math.pow(this.realCenterY, 2)
+			const c3 = Math.pow(this.realCenterX, 2) + Math.pow(this.height - this.realCenterY, 2)
+			const c4 = Math.pow(this.width - this.realCenterX, 2) + Math.pow(this.height - this.realCenterY, 2)
+
+			const radius = Math.sqrt(Math.max(c1, c2, c3, c4))
+
+			/* eslint-disable */
+			TweenLite.to(this, 1, { radius: radius, ease: Quart.easeOut });
+			TweenLite.to(this, 1, { radius2: radius, ease: Quart.easeOut, delay: 0.1,
+				onComplete: () => {
+					this.isAnim = false
+					window.cancelAnimationFrame(this.request)
+				}
+			});
+			/* eslint-enable */
+		},
+		load () {
+			this.isEnded = true
+			this.firstTime = false
+		}
 	}
 }
 </script>
@@ -27,13 +158,22 @@ export default {
 	left 0
 	height 100vh
 	width 100vw
-	background-color #fbd587
+	opacity 1
+	visibility visible
+	transition opacity, visibility
+	transition-duration 0s
+	transition-timing-function ease-in-out
 	z-index 10
-	transform scaleX(0)
-	transform-origin 100% 0
-	transition transform .6s cubic-bezier(.48,0,.12,1)
 
-	&.active
-		transform scaleX(1)
-		transform-origin 0 0
+	&.isEnded
+		opacity 0
+		visibility hidden
+		transition-duration .8s
+
+	canvas
+		position absolute
+		top 0
+		left 0
+		size 100%
+		display block
 </style>

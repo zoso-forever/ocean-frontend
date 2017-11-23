@@ -12,12 +12,8 @@ module.exports = {
 	},
 	loading: false,
 	css: [
-		'@/assets/styles/index.styl'
+		'~/assets/styles/index.styl'
 	],
-	// transition: {
-	// 	mode: '',
-	// 	duration: 1000
-	// },
 	router: {
 		middleware: 'page-loader'
 	},

@@ -34,14 +34,4 @@ export default {
 	&__item
 		line-height 1.4
 		width calc(33% - 20px)
-		transition transform .4s ease-in .1s
-		transform translateY(60px)
-		transition transform .8s cubic-bezier(.165,.84,.44,1), opacity .8s cubic-bezier(.165,.84,.44,1)
-		opacity 0
-		transition-delay 2s
-
-		.isLoaded &
-			opacity 1
-			transform translateY(0)
-			transition-delay .08s
 </style>

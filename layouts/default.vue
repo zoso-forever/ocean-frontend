@@ -1,7 +1,7 @@
 <template>
 	<div class='page'>
 		<app-header />
-		<main v-bind:class='{isLoaded: loaded}'class="page__content">
+		<main class="page__content">
 			<nuxt/>
 		</main>
 		<app-footer />
@@ -19,11 +19,6 @@ export default {
 		appHeader,
 		appFooter,
 		pageLoader
-	},
-	computed: {
-		loaded () {
-			return !this.$store.state.loading
-		}
 	}
 }
 </script>

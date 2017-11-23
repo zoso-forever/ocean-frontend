@@ -1,5 +1,5 @@
 <template>
-	<section v-bind:class='{isActive: loaded}' class="page-about">
+	<section v-bind:class='{isLoaded: isLoaded}' class="page-about">
 		<h1>О нас</h1>
 		<app-list />
 	</section>
@@ -8,6 +8,7 @@
 <script>
 import axios from 'axios'
 import appList from '~/components/app-list.vue'
+import eventBus from '~/utilities/eventBus'
 
 export default {
 	components: {
@@ -21,9 +22,9 @@ export default {
 			]
 		}
 	},
-	computed: {
-		loaded () {
-			return !this.$store.state.loading
+	data () {
+		return {
+			isLoaded: false
 		}
 	},
 	async asyncData (blob) {
@@ -37,9 +38,11 @@ export default {
 	},
 	created () {
 		this.$nextTick(() => {
+			console.log('EVENTHUB', eventBus)
 			setTimeout(() => {
-				this.$store.commit('stopLoader')
-			}, 150)
+				this.isLoaded = true
+				eventBus.$emit('customEvent', {state: false})
+			}, 100)
 		})
 	}
 }
