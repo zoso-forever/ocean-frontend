@@ -38,8 +38,8 @@ export default {
 @require '~assets/styles/global.styl'
 
 .main-page
+	margin-top 120px
 	// background-color #cd9f93
-	page-content()
 
 	.container
 		max-width 1020px
@@ -47,7 +47,7 @@ export default {
 
 	&__title
 		opacity 0
-		transform translateY(45px) rotateY(-30deg) rotateX(-10deg) translateZ(0)
+		transform translateY(50px) rotateY(-30deg) rotateX(-10deg) translateZ(0)
 		transition transform .8s $ease-in-quad .08s, opacity .8s $ease-in-quad .08s
 
 		.isLoaded &
@@ -60,7 +60,7 @@ export default {
 		height auto
 		margin-x auto
 		margin-bottom 35px
-		transform translateY(45px)
+		transform translateY(50px)
 		opacity 0
 		transition opacity .8s $ease-in-quad, transform .8s $ease-in-quad
 
@@ -70,7 +70,7 @@ export default {
 
 	&__list
 		opacity 0
-		transform translateY(45px)
+		transform translateY(50px)
 		transition opacity .8s $ease-in-quad .16s, transform .8s $ease-in-quad .16s
 
 		.isLoaded &

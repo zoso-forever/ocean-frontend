@@ -1,0 +1,4 @@
+node_modules
+.nuxt
+utilities
+webpack.config.js

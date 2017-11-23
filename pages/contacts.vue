@@ -42,15 +42,15 @@ export default {
 @require '~assets/styles/global.styl'
 
 .page-contacts
+	margin-top 120px
 	// background-color #9ccd93
-	page-content()
 
 	&__img
 		max-width 100%
 		display block
 		margin-x auto
 		opacity 0
-		transform translateY(60px)
+		transform translateY(50px)
 		transition transform .8s $ease-in-quad .16s, opacity .8s $ease-in-quad .16s
 
 		.isLoaded &
@@ -60,7 +60,7 @@ export default {
 	&__title
 		margin-bottom 45px
 		opacity 0
-		transform translateY(60px) rotateY(-30deg) rotateX(-10deg) translateZ(0)
+		transform translateY(50px) rotateY(-30deg) rotateX(-10deg) translateZ(0)
 		transition transform .8s $ease-in-quad, opacity .8s $ease-in-quad
 
 		.isLoaded &
@@ -76,7 +76,7 @@ export default {
 		margin-x auto
 		margin-bottom 75px
 		opacity 0
-		transform translateY(60px)
+		transform translateY(50px)
 		transition transform .8s $ease-in-quad .08s, opacity .8s $ease-in-quad .08s
 
 		.isLoaded &

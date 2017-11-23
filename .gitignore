@@ -3,6 +3,7 @@
 .zip
 .vscode
 configs
+.eslintcache
 
 # dependencies
 node_modules
