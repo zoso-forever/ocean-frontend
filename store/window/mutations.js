@@ -13,6 +13,9 @@ const mutations = {
 	},
 	SET_SCROLLDIRECTION: (state, val) => {
 		state.scrollDirection = val
+	},
+	FILLED: (state) => {
+		state.filled = true
 	}
 }
 

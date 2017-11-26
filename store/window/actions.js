@@ -6,6 +6,10 @@ let scrollTop = 0
 
 const actions = {
 	resize: (context) => {
+		// if (!context.state.filled) {
+		// 	return
+		// }
+		console.log('resize')
 		context.commit('SET_WIDTH', window.innerWidth)
 		context.commit('SET_HEIGHT', window.innerHeight)
 		context.commit('SET_ISTOUCH', support.touch())
@@ -14,6 +18,9 @@ const actions = {
 	},
 
 	scroll: (context) => {
+		// if (!context.state.filled) {
+		// 	return
+		// }
 		scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop
 
 		context.commit('SET_SCROLLTOP', scrollTop)

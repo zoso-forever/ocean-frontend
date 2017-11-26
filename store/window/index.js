@@ -4,7 +4,8 @@ import mutations from './mutations'
 const state = {
 	width: 0,
 	height: 0,
-	scrollDirection: 1
+	scrollDirection: 1,
+	filled: false
 }
 
 const getters = {
