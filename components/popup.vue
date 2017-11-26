@@ -35,7 +35,9 @@
 </template>
 
 <script>
-import {TweenLite} from 'gsap'
+import { TweenLite } from 'gsap'
+import { mapState } from 'vuex'
+import eventBus from '~/utilities/eventBus'
 
 export default {
 	props: {
@@ -50,6 +52,12 @@ export default {
 			animClass: false
 		}
 	},
+	computed: {
+		...mapState('window', {
+			winWidth: 'width',
+			winHeight: 'height'
+		})
+	},
 	created () {
 		this.isAnim = false
 		this.radius = 0
@@ -60,12 +68,13 @@ export default {
 				this.canvas = this.$el.querySelector('.js-canvas-bg')
 				this.ctx = this.canvas.getContext('2d')
 
-				this.winHeight = window.innerHeight
-				this.winWidth = window.innerWidth
-
+				eventBus.$on('resize', this.resize)
 				this.resize()
 			}, 100)
 		})
+	},
+	beforeDestroy () {
+		eventBus.$off('resize', this.resize)
 	},
 	watch: {
 		state (newValue) {

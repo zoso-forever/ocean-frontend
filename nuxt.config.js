@@ -16,10 +16,7 @@ module.exports = {
 	],
 	router: {
 		middleware: 'page-loader',
-		scrollBehavior: function (to, from, savedPosition) {
-			console.log(to, from, savedPosition)
-			return {}
-		}
+		scrollBehavior: () => {}
 	},
 	build: {
 		vendor: [

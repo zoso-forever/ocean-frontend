@@ -9,7 +9,6 @@ const actions = {
 		// if (!context.state.filled) {
 		// 	return
 		// }
-		console.log('resize')
 		context.commit('SET_WIDTH', window.innerWidth)
 		context.commit('SET_HEIGHT', window.innerHeight)
 		context.commit('SET_ISTOUCH', support.touch())

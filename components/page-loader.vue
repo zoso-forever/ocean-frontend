@@ -7,20 +7,18 @@
 <script>
 import { TweenLite } from 'gsap'
 import eventBus from '~/utilities/eventBus'
-// import { mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
-	// computed: {
-	// 	...mapState('window', [
-	// 		'width',
-	// 		'height'
-	// 	])
-	// },
+	computed: {
+		...mapState('window', [
+			'width',
+			'height'
+		])
+	},
 	data () {
 		return {
 			firstTime: true,
-			height: 0,
-			width: 0,
 			isEnded: false
 		}
 	},
@@ -42,20 +40,20 @@ export default {
 			setTimeout(() => {
 				this.$canvas = this.$el.querySelector('.js-canvas')
 				this.ctx = this.$canvas.getContext('2d')
-				this.height = window.innerHeight
-				this.width = window.innerWidth
 
 				window.addEventListener('mousemove', this.setCenter.bind(this), false)
-				eventBus.$on('customEvent', this.onRouteChanged)
+				eventBus.$on('routeChange', this.onRouteChanged)
+				eventBus.$on('resize', this.resize)
 
 				this.resize()
 				this.load()
-			}, 200)
+			}, 100)
 		})
 	},
 	beforeDestroy () {
 		window.removeEventListener('mousemove', this._setCenter, false)
-		eventBus.$off('customEvent', this.onRouteChanged)
+		eventBus.$off('routeChanged', this.onRouteChanged)
+		eventBus.$off('resize', this.resize)
 	},
 	methods: {
 		onRouteChanged ({state, color}) {
@@ -69,6 +67,7 @@ export default {
 			}
 		},
 		resize () {
+			console.log('resize')
 			if (this.$canvas.width !== this.width || this.$canvas.height !== this.height) {
 				this.$canvas.width = this.width
 				this.$canvas.height = this.height
