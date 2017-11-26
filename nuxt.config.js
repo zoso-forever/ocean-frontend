@@ -15,11 +15,16 @@ module.exports = {
 		'~/assets/styles/index.styl'
 	],
 	router: {
-		middleware: 'page-loader'
+		middleware: 'page-loader',
+		scrollBehavior: function (to, from, savedPosition) {
+			console.log(to, from, savedPosition)
+			return {}
+		}
 	},
 	build: {
 		vendor: [
-			'axios'
+			'axios',
+			'gsap'
 		],
 		postcss: [
 			require('autoprefixer')()

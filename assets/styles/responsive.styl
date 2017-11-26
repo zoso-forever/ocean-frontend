@@ -1,0 +1,41 @@
+$mod = '_'
+
+responsive($screens)
+    .app
+      for $name, $resolution in $screens
+        &{$mod}visible-on-{$name}
+        &{$mod}visible-on-{$name}-and-up
+        &{$mod}visible-on-{$name}-and-down
+          display none!important
+
+        if $resolution.max
+          &{$mod}visible-on-{$name}
+            @media (min-width: $resolution.min) and (max-width: $resolution.max)
+              display: block !important
+
+          &{$mod}visible-on-{$name}-and-down
+            @media (max-width: $resolution.max)
+              display: block !important
+
+          &{$mod}hidden-on-{$name}
+            @media (min-width: $resolution.min) and (max-width: $resolution.max)
+              display: none !important
+
+          &${$mod}hidden-on-{$name}-and-down
+            @media (max-width: $resolution.max)
+              display: none !important
+        else
+          &{$mod}visible-on-{$name}
+              @media (min-width: $resolution.min)
+                display: block !important
+
+          &{$mod}hidden-on-{$name}
+              @media (min-width: $resolution.min)
+                display: none !important
+        &{$mod}visible-on-{$name}-and-up
+          @media (min-width: $resolution.min)
+            display: block !important
+
+        &{$mod}hidden-on-{$name}-and-up
+          @media (min-width: $resolution.min)
+            display: none !important

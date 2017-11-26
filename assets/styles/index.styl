@@ -1,6 +1,9 @@
 @import global
 @import animation
 @import reset
+@import responsive
+
+responsive($screens)
 
 html
 	font-family sans-serif
@@ -44,6 +47,11 @@ a
 address
 	font-style normal
 
+input
+textarea
+	font-family inherit
+	outline 0
+
 h1
 	font-size 62px
 	text-align center
@@ -54,26 +62,26 @@ h1
 	font-weight 700
 
 .button
-    max-width 100%
-    border 0
-    margin 0
-    padding 14px 20px 10px 20px
-    border-radius 0
-    outline none
-    overflow hidden
+	max-width 100%
+	border 0
+	margin 0
+	padding 14px 20px 12px
+	border-radius 0
+	outline none
+	overflow hidden
 
-    text-align center
-    text-transform uppercase
-    font-family inherit
-    white-space nowrap
-    text-decoration none
-    font-size 10px
-    font-weight 700
+	text-align center
+	text-transform uppercase
+	font-family inherit
+	white-space nowrap
+	text-decoration none
+	font-size 10px
+	font-weight 700
 
-    -moz-appearance none
-    -webkit-appearance none
-    cursor pointer
-    user-select none
+	-moz-appearance none
+	-webkit-appearance none
+	cursor pointer
+	user-select none
 
 	&::-moz-focus-inner
 		border 0
