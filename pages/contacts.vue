@@ -1,5 +1,5 @@
 <template>
-	<section v-bind:class='{isLoaded: isLoaded}' class="page-contacts">
+	<section :class='{isLoaded: isLoaded}' class="page-contacts">
 		<h1 class='page-contacts__title'>Контакты</h1>
 		<p class="page-contacts__head-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquid expedita nostrum aspernatur commodi explicabo omnis temporibus totam.</p>
 		<img src="~/assets/images/cat2.jpeg" alt="" class="page-contacts__img">

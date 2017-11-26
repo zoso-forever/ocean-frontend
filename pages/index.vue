@@ -1,5 +1,5 @@
 <template>
-	<section v-bind:class='{isLoaded: isLoaded}' class="main-page">
+	<section :class='{isLoaded: isLoaded}' class="main-page">
 		<div class="container">
 			<img src="~/assets/images/cat1.jpg" alt="" class="main-page__img">
 			<h1 class='main-page__title'>Океан путешествий</h1>

@@ -1,5 +1,5 @@
 <template>
-	<section v-bind:class='{isLoaded: isLoaded}' class="page-about">
+	<section :class='{isLoaded: isLoaded}' class="page-about">
 		<h1 class='page-about__title'>О нас</h1>
 		<div class="page-about__list">
 			<app-list />

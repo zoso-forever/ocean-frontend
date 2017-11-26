@@ -1,5 +1,5 @@
 <template>
-	<div v-bind:class='{isEnded: isEnded}' class="page-loader">
+	<div :class='{isEnded: isEnded}' class="page-loader">
 		<canvas class="js-canvas"/>
 	</div>
 </template>

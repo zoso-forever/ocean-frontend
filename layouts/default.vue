@@ -5,7 +5,7 @@
 			<nuxt/>
 		</main>
 		<app-footer />
-		<popup v-bind:state='open' v-on:closePopup='CLOSE_POPUP'/>
+		<popup :state='open' @closePopup='CLOSE_POPUP'/>
 		<page-loader />
 	</div>
 </template>
