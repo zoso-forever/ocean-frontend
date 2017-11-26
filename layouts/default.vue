@@ -5,20 +5,35 @@
 			<nuxt/>
 		</main>
 		<app-footer />
+		<popup v-bind:state='open' v-on:closePopup='CLOSE_POPUP'/>
 		<page-loader />
 	</div>
 </template>
 
 <script>
-import appHeader from '~/components/app-header.vue'
-import appFooter from '~/components/app-footer.vue'
-import pageLoader from '~/components/page-loader.vue'
+import AppHeader from '~/components/app-header.vue'
+import AppFooter from '~/components/app-footer.vue'
+import Popup from '~/components/popup.vue'
+import PageLoader from '~/components/page-loader.vue'
+import {mapState, mapMutations} from 'vuex'
 
 export default {
 	components: {
-		appHeader,
-		appFooter,
-		pageLoader
+		AppHeader,
+		AppFooter,
+		Popup,
+		PageLoader
+	},
+	computed: {
+		...mapState('popup', [
+			'open'
+		])
+	},
+	methods: {
+		...mapMutations('popup', [
+			'OPEN_POPUP',
+			'CLOSE_POPUP'
+		])
 	}
 }
 </script>

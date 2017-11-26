@@ -95,7 +95,6 @@ export default {
 			this.centerY = e.clientY
 		},
 		update () {
-			console.log('gogo')
 			if (this.isAnim) {
 				this.ctx.clearRect(0, 0, this.width, this.height)
 
@@ -142,6 +141,7 @@ export default {
 			/* eslint-enable */
 		},
 		load () {
+			window.scrollTo(0, 0)
 			this.isEnded = true
 			this.firstTime = false
 		}

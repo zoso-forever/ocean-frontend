@@ -1,8 +1,8 @@
 import eventBus from '../utilities/eventBus'
 const pageColors = {
-	contacts: '#0d57d8',
-	about: '#db739a',
-	index: '#3388dd'
+	contacts: '#0d57d2',
+	about: '#47DDAF',
+	index: '#f8e885'
 }
 export default (context) => {
 	console.log(context)
