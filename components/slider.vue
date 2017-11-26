@@ -1,7 +1,5 @@
 <template>
-	<div
-		:class='{isInitialised: sliderInitialized}'
-		class="slider">
+	<div :class='{isInitialised: sliderInitialized}' class="slider">
 		<div class="slider__wrapper">
 			<div class="slider__titles">
 				<h2

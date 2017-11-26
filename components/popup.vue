@@ -1,6 +1,5 @@
 <template>
-	<div
-		:class='{
+	<div :class='{
 			isActive: state,
 			isAnimating: animClass
 		}'
@@ -61,6 +60,7 @@ export default {
 	created () {
 		this.isAnim = false
 		this.radius = 0
+		this.$body = document.querySelector('body')
 	},
 	mounted () {
 		this.$nextTick(() => {
@@ -80,8 +80,10 @@ export default {
 		state (newValue) {
 			if (newValue) {
 				this.openPopup()
+				this.$body.classList.add('app_no-scroll')
 			} else {
 				this.onPopupClose()
+				this.$body.classList.remove('app_no-scroll')
 			}
 		}
 	},
