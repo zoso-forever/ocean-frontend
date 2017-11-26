@@ -7,16 +7,19 @@
 				<app-list />
 			</div>
 		</div>
+		<slider/>
 	</section>
 </template>
 
 <script>
 import appList from '~/components/app-list.vue'
 import eventBus from '~/utilities/eventBus'
+import Slider from '~/components/slider.vue'
 
 export default {
 	components: {
-		appList
+		appList,
+		Slider
 	},
 	data () {
 		return {

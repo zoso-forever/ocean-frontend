@@ -9,6 +9,24 @@
 			<img src="~/assets/images/cat2small.jpg" alt="" class="page-about__img">
 			<img src="~/assets/images/cat3small.jpg" alt="" class="page-about__img">
 		</div>
+		<h1 class='page-about__title'>О нас</h1>
+		<div class="page-about__list">
+			<app-list />
+		</div>
+		<div class="page-about__gallery">
+			<img src="~/assets/images/cat4small.jpg" alt="" class="page-about__img">
+			<img src="~/assets/images/cat2small.jpg" alt="" class="page-about__img">
+			<img src="~/assets/images/cat3small.jpg" alt="" class="page-about__img">
+		</div>
+		<h1 class='page-about__title'>О нас</h1>
+		<div class="page-about__list">
+			<app-list />
+		</div>
+		<div class="page-about__gallery">
+			<img src="~/assets/images/cat4small.jpg" alt="" class="page-about__img">
+			<img src="~/assets/images/cat2small.jpg" alt="" class="page-about__img">
+			<img src="~/assets/images/cat3small.jpg" alt="" class="page-about__img">
+		</div>
 	</section>
 </template>
 
