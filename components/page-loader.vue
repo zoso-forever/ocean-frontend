@@ -42,12 +42,12 @@ export default {
 				this.ctx = this.$canvas.getContext('2d')
 
 				window.addEventListener('mousemove', this.setCenter.bind(this), false)
-				eventBus.$on('routeChange', this.onRouteChanged)
+				eventBus.$on('routeChanged', this.onRouteChanged)
 				eventBus.$on('resize', this.resize)
 
 				this.resize()
 				this.load()
-			}, 100)
+			}, 200)
 		})
 	},
 	beforeDestroy () {
@@ -57,6 +57,7 @@ export default {
 	},
 	methods: {
 		onRouteChanged ({state, color}) {
+			console.log(state, color)
 			if (state) {
 				this.circleColor2 = color || '#0d49a3'
 				this.openCircle()

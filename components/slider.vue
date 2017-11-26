@@ -62,39 +62,41 @@ import {TimelineLite} from 'gsap'
 export default {
 	data () {
 		return {
-			slides: [
-				{
-					image: require('~/assets/images/slider1.jpg'),
-					text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-					title: 'Delicious'
-				},
-				{
-					image: require('~/assets/images/slider2.jpg'),
-					text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-					title: 'Anywhere'
-				},
-				{
-					image: require('~/assets/images/slider3.jpg'),
-					text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-					title: 'Ingredients'
-				},
-				{
-					image: require('~/assets/images/slider4.jpg'),
-					text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-					title: 'The Caribbean'
-				},
-				{
-					image: require('~/assets/images/slider5.jpg'),
-					text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-					title: 'Cream'
-				}
-			],
 			currentIndex: 0,
 			prevIndex: 0,
 			showPanelContent: true,
 			isAnimating: false,
 			sliderInitialized: false
 		}
+	},
+	created () {
+		this.slides = [
+			{
+				image: require('~/assets/images/slider1.jpg'),
+				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
+				title: 'Delicious'
+			},
+			{
+				image: require('~/assets/images/slider2.jpg'),
+				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
+				title: 'Anywhere'
+			},
+			{
+				image: require('~/assets/images/slider3.jpg'),
+				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
+				title: 'Ingredients'
+			},
+			{
+				image: require('~/assets/images/slider4.jpg'),
+				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
+				title: 'The Caribbean'
+			},
+			{
+				image: require('~/assets/images/slider5.jpg'),
+				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
+				title: 'Cream'
+			}
+		]
 	},
 	mounted () {
 		this.$nextTick(() => {

@@ -66,7 +66,7 @@ export default {
 			console.log('EVENTHUB', eventBus)
 			setTimeout(() => {
 				this.isLoaded = true
-				eventBus.$emit('customEvent', {state: false})
+				eventBus.$emit('routeChanged', {state: false})
 			}, 100)
 		})
 	}

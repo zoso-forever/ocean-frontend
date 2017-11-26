@@ -30,7 +30,7 @@ export default {
 		this.$nextTick(() => {
 			setTimeout(() => {
 				this.isLoaded = true
-				eventBus.$emit('customEvent', {state: false})
+				eventBus.$emit('routeChanged', {state: false})
 			}, 100)
 		})
 	}
