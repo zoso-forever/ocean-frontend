@@ -71,28 +71,28 @@ export default {
 		this.slides = [
 			{
 				image: require('~/assets/images/slider1.jpg'),
-				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-				title: 'Delicious'
+				text: 'Товарищи! дальнейшее развитие различных форм деятельности позволяет оценить значение форм развития. Повседневная практика показывает, что укрепление и развитие структуры требуют от нас анализа существенных финансовых и административных условий. Равным образом консультация с широким активом играет важную роль в формировании существенных финансовых и административных условий.',
+				title: 'Товарищи'
 			},
 			{
 				image: require('~/assets/images/slider2.jpg'),
-				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-				title: 'Anywhere'
+				text: 'Товарищи! дальнейшее развитие различных форм деятельности позволяет оценить значение форм развития. Повседневная практика показывает, что укрепление и развитие структуры требуют от нас анализа существенных финансовых и административных условий. Равным образом консультация с широким активом играет важную роль в формировании существенных финансовых и административных условий.',
+				title: 'Мир труд май'
 			},
 			{
 				image: require('~/assets/images/slider3.jpg'),
-				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-				title: 'Ingredients'
+				text: 'Товарищи! дальнейшее развитие различных форм деятельности позволяет оценить значение форм развития. Повседневная практика показывает, что укрепление и развитие структуры требуют от нас анализа существенных финансовых и административных условий. Равным образом консультация с широким активом играет важную роль в формировании существенных финансовых и административных условий.',
+				title: 'Народ и армия'
 			},
 			{
 				image: require('~/assets/images/slider4.jpg'),
-				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-				title: 'The Caribbean'
+				text: 'Товарищи! дальнейшее развитие различных форм деятельности позволяет оценить значение форм развития. Повседневная практика показывает, что укрепление и развитие структуры требуют от нас анализа существенных финансовых и административных условий. Равным образом консультация с широким активом играет важную роль в формировании существенных финансовых и административных условий.',
+				title: 'Партия'
 			},
 			{
 				image: require('~/assets/images/slider5.jpg'),
-				text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ducimus nobis magnam velit reiciendis blanditiis architecto pariatur dolore odio voluptatum libero dolor tempore, fugiat similique.',
-				title: 'Cream'
+				text: 'Товарищи! дальнейшее развитие различных форм деятельности позволяет оценить значение форм развития. Повседневная практика показывает, что укрепление и развитие структуры требуют от нас анализа существенных финансовых и административных условий. Равным образом консультация с широким активом играет важную роль в формировании существенных финансовых и административных условий.',
+				title: 'Ленин'
 			}
 		]
 	},
@@ -106,8 +106,6 @@ export default {
 				this.panelHeight = this.panels[0].offsetHeight + 20
 				this.titleHeight = this.titles[0].offsetHeight
 
-				// this.changeSlide(1)
-				// this.sliderInitialized = true
 				this.initSlides()
 			}, 100)
 		})
@@ -138,23 +136,21 @@ export default {
 			this.currentIndex = newIndex
 			const ease = Power3.easeInOut
 			const duration = 0.7
+			this.showPanelContent = false
 
-			tl.to(prevPanel, 0.4, {scale: 0.8, ease,
-				onStart: () => {
-					this.showPanelContent = false
-				}
-			})
-			.to(prevSlide, duration, {y: '-100%', ease}, 'slide')
-			.fromTo(currSlide, duration, {y: '100%'}, {y: '0%', ease}, 'slide')
-			.to(currPanel, duration, {y: '0%', ease}, 'slide')
-			.to(prevTitle, duration, {y: '-150%', opacity: 0, ease}, 'slide')
-			.fromTo(currTitle, duration, {opacity: 0, y: '150%'}, {opacity: 1, y: '0%', ease}, 'slide')
-			.set(prevPanel, {y: '108%'})
-			.to(currPanel, 0.4, {scale: 1, ease,
-				onStart: () => {
-					this.showPanelContent = true
-				}
-			}, '-=0.05')
+			tl
+				.to(prevPanel, 0.35, {scale: 0.8, ease})
+				.to(prevSlide, duration, {y: '-100%', ease}, 'slide')
+				.fromTo(currSlide, duration, {y: '100%'}, {y: '0%', ease}, 'slide')
+				.to(currPanel, duration, {y: '0%', ease}, 'slide')
+				.to(prevTitle, duration, {y: '-150%', opacity: 0, ease}, 'slide')
+				.fromTo(currTitle, duration, {opacity: 0, y: '150%'}, {opacity: 1, y: '0%', ease}, 'slide')
+				.set(prevPanel, {y: '108%'})
+				.to(currPanel, 0.35, {scale: 1, ease,
+					onStart: () => {
+						this.showPanelContent = true
+					}
+				}, '-=0.08')
 		},
 		initSlides () {
 			const tl = new TimelineLite({
@@ -313,10 +309,10 @@ export default {
 			right auto
 
 		@media desktop-l-and-up
-			left 15%
+			left 14%
 
 		@media desktop-hd-and-up
-			left 20%
+			left 15%
 
 	&__title
 		position absolute
@@ -327,10 +323,12 @@ export default {
 		text-align center
 		white-space nowrap
 		font-size 32px
-		color #000
+		color #1b1b1b
 		transform translateY(100%)
 		opacity 0
 		font-weight 700
+		text-transform uppercase
+		letter-spacing -0.05em
 
 		@media tablet-and-up
 			left 0
@@ -347,28 +345,22 @@ export default {
 		top 0
 		left 0
 		size 100%
-		padding 25px
+		padding 15%
 		background-color #fff
 		transform scale(.8) translate(0, 135%)
 		transition box-shadow .2s ease
 		box-shadow 0 0 40px 0 transparent, 0 6px 18px transparent
 
-		@media tablet-and-up
-			padding 35px
-
-		@media desktop-and-up
-			padding 50px
-
 		&.showContent
 			box-shadow 0px 0px 40px 0px rgba(0,0,0,0.24), 0px 6px 18px rgba(0,0,0,0.12)
-		// transition none
 
 	&__panel-inner
 		opacity 0
-		transition opacity .4s ease-in-out
+		transition opacity .25s ease-in-out
+		will-change opacity
 
 		.showContent &
-			transition-delay 0.1s
+			transition-delay 0.15s
 			opacity 1
 
 	&__panel-text

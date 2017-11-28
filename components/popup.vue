@@ -17,13 +17,13 @@
 					<h1 class="popup__title">Оставить заявку</h1>
 					<form class="popup__form">
 						<div class="popup__form-row">
-							<input placeholder='Почта' type="text" class="popup__form-input">
+							<input placeholder='Почта' type="text" class="app-input">
 						</div>
 						<div class="popup__form-row">
-							<input placeholder='Имя Фамилия' type="text" class="popup__form-input">
+							<input placeholder='Имя Фамилия' type="text" class="app-input">
 						</div>
 						<div class="popup__form-row">
-							<textarea placeholder='Валяй' name="ept" cols="30" rows="6" class="popup__form-textarea"></textarea>
+							<textarea placeholder='Валяй' name="ept" cols="30" rows="6" class="app-textarea"></textarea>
 						</div>
 						<button class="popup__form-submit button">Отправить</button>
 					</form>
@@ -60,13 +60,13 @@ export default {
 	created () {
 		this.isAnim = false
 		this.radius = 0
-		this.$body = document.querySelector('body')
 	},
 	mounted () {
 		this.$nextTick(() => {
 			setTimeout(() => {
 				this.canvas = this.$el.querySelector('.js-canvas-bg')
 				this.ctx = this.canvas.getContext('2d')
+				this.$body = document.querySelector('body')
 
 				eventBus.$on('resize', this.resize)
 				this.resize()
@@ -97,19 +97,14 @@ export default {
 			this.canvas.width = this.winWidth
 			this.canvas.height = this.winHeight
 
-			this.origin = {
-				x: 0,
-				y: 0
-			}
-
-			this.targetRadius = Math.sqrt(Math.pow(this.winWidth - this.origin.x, 2) + Math.pow(this.winHeight - this.origin.y, 2))
+			this.targetRadius = Math.sqrt(Math.pow(this.winWidth, 2) + Math.pow(this.winHeight, 2))
 
 			if (this.state && !this.isAnim) {
 				this.radius = this.targetRadius
 			}
 
 			this.ctx.beginPath()
-			this.ctx.arc(this.winWidth - this.origin.x, this.origin.y, this.radius, 0, 2 * Math.PI, false)
+			this.ctx.arc(this.winWidth, 0, this.radius, 0, 2 * Math.PI, false)
 			this.ctx.fillStyle = '#ffffff'
 			this.ctx.fill()
 		},
@@ -117,7 +112,7 @@ export default {
 			if (this.isAnim) {
 				this.ctx.clearRect(0, 0, this.winWidth, this.winHeight)
 				this.ctx.beginPath()
-				this.ctx.arc(this.winWidth - this.origin.x, this.origin.y, this.radius, 0, 2 * Math.PI, false)
+				this.ctx.arc(this.winWidth, 0, this.radius, 0, 2 * Math.PI, false)
 				this.ctx.fillStyle = '#ffffff'
 				this.ctx.fill()
 			}
@@ -198,7 +193,6 @@ $duration = 1.2s
 		pointer-events auto
 		opacity 0
 		visibility hidden
-		transform translateZ()
 		z-index 10
 
 		.isAnimating &
@@ -235,8 +229,15 @@ $duration = 1.2s
 			transform translateZ(0)
 
 	&__form-row
+		opacity 0
+		transform translateY(35px) rotateY(20deg) rotateX(15deg) translateZ(0)
+
+		.isActive &
+			opacity 1
+			transform translateZ(0)
+
 		&:not(:last-child)
-			margin-bottom 25px
+			margin-bottom 2px
 
 	&__form-input
 	&__form-textarea
@@ -246,18 +247,12 @@ $duration = 1.2s
 		font-size 18px
 		// border-radius 2px
 		padding 16px 10px
-		opacity 0
-		transform translateY(35px) rotateY(20deg) rotateX(15deg) translateZ(0)
 
-		.isActive &
-			opacity 1
-			transform translateZ(0)
-
-	&__form-input:nth-child(1)
+	&__form-row:nth-child(1)
 		transition opacity $duration $ease-out-quint .16s, transform $duration $ease-out-quint .16s
-	&__form-input:nth-child(2)
+	&__form-row:nth-child(2)
 		transition opacity $duration $ease-out-quint .24s, transform $duration $ease-out-quint .24s
-	&__form-textarea
+	&__form-row:nth-child(3)
 		transition opacity $duration $ease-out-quint .32s, transform $duration $ease-out-quint .32s
 
 	&__form-submit
@@ -265,6 +260,7 @@ $duration = 1.2s
 		color #fff
 		font-size 14px
 		padding-x 55px
+		margin-top 25px
 		padding-top 20px
 		padding-bottom 20px
 		opacity 0

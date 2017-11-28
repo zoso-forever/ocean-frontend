@@ -1,5 +1,5 @@
 <template>
-	<header class='app-header'>
+	<header :class='{fixed: fixed, hidden: hidden}' class='app-header'>
 		<div class="app-header__container">
 			<nav>
 				<ul>
@@ -19,9 +19,26 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapMutations, mapState} from 'vuex'
 
 export default {
+	data () {
+		return {
+			treshold: 200
+		}
+	},
+	computed: {
+		...mapState('window', [
+			'scrollTop',
+			'scrollDirection'
+		]),
+		fixed () {
+			return this.scrollTop > this.treshold
+		},
+		hidden () {
+			return this.scrollDirection === 1 && this.scrollTop > 10
+		}
+	},
 	methods: {
 		...mapMutations('popup', [
 			'OPEN_POPUP'
@@ -35,7 +52,19 @@ export default {
 
 .app-header
 	padding 20px
+	position absolute
+	left 0
+	right 0
+	top 0
+	z-index 9
 	background-color #f5f5f5
+	transition transform .5s $ease-in-quad
+
+	&.fixed
+		position fixed
+
+	&.hidden
+		transform translateY(-100%)
 
 	&__container
 		display flex

@@ -2,8 +2,11 @@
 @import animation
 @import reset
 @import responsive
+@import fonts
+@require forms
 
 responsive($screens)
+// fontFace('NotoSans', ('100' '300' '400' '700'))
 
 html
 	font-family sans-serif
@@ -15,11 +18,9 @@ body
 
 body
 	position relative
-
-	font-family 'Noto Sans', sans-serif
+	font-family 'Noto Sans', Helvetica, Arial, sans-serif
 	font-size 16px
 	color #1b608d
-
 	overflow-x hidden
 	text-rendering optimizeLegibility
 	-ms-text-size-adjust 100%

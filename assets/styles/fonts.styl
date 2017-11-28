@@ -1,0 +1,26 @@
+
+addFontFace($font-name, $weight, $style, $dir='~assets/fonts/')
+    $file-path = $dir + $font-name + '_' + $weight
+
+    if $style == 'italic'
+        $file-path += '_' + $style
+
+    $url = 'url("' + $file-path + '.woff2") format("woff2"), '
+    $url = $url + 'url("' + $file-path + '.woff") format("woff")'
+
+    @font-face
+        font-family $font-name
+        src unquote($url)
+        font-weight unquote($weight)
+        font-style unquote($style)
+
+
+fontFace($family, $types, $dir='~assets/fonts/')
+    for i in (0..length($types) - 1)
+        $type = $types[i]
+        $typeWidth = split('italic', $type)
+
+        if length($typeWidth) == 1
+            addFontFace($family, $typeWidth, normal, $dir)
+        else
+            addFontFace($family, $typeWidth[0], italic, $dir)

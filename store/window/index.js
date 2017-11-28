@@ -1,12 +1,13 @@
 import actions from './actions'
 import mutations from './mutations'
 
-const state = {
+const state = _ => ({
 	width: 0,
 	height: 0,
 	scrollDirection: 1,
+	scrollTop: 0,
 	filled: false
-}
+})
 
 const getters = {
 	halfWidth: state => state.width / 2,

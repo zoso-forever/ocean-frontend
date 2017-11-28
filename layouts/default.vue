@@ -44,7 +44,6 @@ export default {
 		])
 	},
 	mounted () {
-		this.FILLED()
 		this.$nextTick(() => {
 			window.addEventListener('resize', throttle(this.resize), false)
 			document.addEventListener('scroll', this.scroll, false)

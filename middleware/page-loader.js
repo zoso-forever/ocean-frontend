@@ -2,7 +2,7 @@ import eventBus from '../utilities/eventBus'
 
 const pageColors = {
 	contacts: '#0d57d2',
-	about: '#47DDAF',
+	about: '#62D9A5',
 	index: '#f8e885'
 }
 

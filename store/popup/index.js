@@ -1,6 +1,6 @@
-const state = {
+const state = _ => ({
 	open: false
-}
+})
 
 const mutations = {
 	OPEN_POPUP (state) {
