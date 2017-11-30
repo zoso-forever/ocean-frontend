@@ -1,5 +1,5 @@
 <template>
-	<header :class='{fixed: fixed, hidden: hidden}' class='app-header'>
+	<header :class='{maximized: maximized, hidden: hidden}' class='app-header'>
 		<div class="app-header__container">
 			<nav>
 				<ul>
@@ -24,7 +24,7 @@ import {mapMutations, mapState} from 'vuex'
 export default {
 	data () {
 		return {
-			treshold: 200
+			treshold: 80
 		}
 	},
 	computed: {
@@ -32,7 +32,7 @@ export default {
 			'scrollTop',
 			'scrollDirection'
 		]),
-		fixed () {
+		maximized () {
 			return this.scrollTop > this.treshold
 		},
 		hidden () {
@@ -51,20 +51,22 @@ export default {
 @require '~assets/styles/global.styl'
 
 .app-header
-	padding 20px
-	position absolute
+	padding 15px
+	position fixed
 	left 0
 	right 0
 	top 0
 	z-index 9
-	background-color #f5f5f5
-	transition transform .5s $ease-in-quad
+	background-color #ffffff
+	transition transform .6s cubic-bezier(0.48, 0, 0.12, 1)
 
-	&.fixed
-		position fixed
+	&.maximized
+		box-shadow 0 2px 2px -2px rgba(0, 0, 0, .17)
+		// border-bottom 1px solid #878787
 
 	&.hidden
 		transform translateY(-100%)
+		box-shadow none
 
 	&__container
 		display flex
@@ -94,7 +96,5 @@ nav
 	li
 		&:not(:last-child)
 			margin-right 17px
-
-
 
 </style>

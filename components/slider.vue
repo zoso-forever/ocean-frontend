@@ -21,7 +21,7 @@
 					@click='nextSlide'
 					type='button'
 					class="slider__next">
-					next
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M97.137,29.56C97.714,28.984,98,28.229,98,27.475s-0.286-1.51-0.863-2.085c-1.152-1.152-3.018-1.152-4.169,0L50,68.356  L7.031,25.39c-1.149-1.152-3.015-1.152-4.169,0c-1.15,1.152-1.15,3.018,0,4.17L47.917,74.61c1.15,1.152,3.015,1.152,4.17,0  L97.137,29.56z"/></svg>
 				</button>
 				<div class="slider__panels">
 					<div
@@ -221,6 +221,13 @@ export default {
 		z-index 5
 		box-shadow 0px 0px 40px 0px rgba(0,0,0,0.12), 0px 6px 12px rgba(0,0,0,0.08)
 
+		svg
+			size 28px
+			position absolute
+			top 55%
+			left 50%
+			transform translate(-50%, -50%)
+
 		@media desktop-and-up
 			size 85px
 			bottom -42.5px
@@ -239,7 +246,6 @@ export default {
 		clear-button-defaults()
 
 		font-size 14px
-		// font-weight 600
 		letter-spacing 0.02em
 		text-transform uppercase
 		padding 4px 8px

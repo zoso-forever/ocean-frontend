@@ -3,6 +3,7 @@
 			isActive: state,
 			isAnimating: animClass
 		}'
+		role='dialog'
 		class="popup">
 		<canvas class="js-canvas-bg" />
 		<div class="popup__inner">
@@ -11,7 +12,7 @@
 					type='button'
 					@click='closePopup'
 					class="popup__close">
-					Close
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve"><g><path d="M87.8,12.8c-1-1-2.6-1-3.5,0L50.5,46.5L15.8,11.7c-1-1-2.6-1-3.5,0c-1,1-1,2.6,0,3.5L47,50L12.2,84.8c-1,1-1,2.6,0,3.5   c0.5,0.5,1.1,0.7,1.8,0.7s1.3-0.2,1.8-0.7l34.8-34.8l33.7,33.7c0.5,0.5,1.1,0.7,1.8,0.7s1.3-0.2,1.8-0.7c1-1,1-2.6,0-3.5L54.1,50   l33.7-33.7C88.7,15.3,88.7,13.7,87.8,12.8z"/></g></svg>
 				</button>
 				<div class="popup__content">
 					<h1 class="popup__title">Оставить заявку</h1>
@@ -125,7 +126,7 @@ export default {
 			this.$nextTick(() => {
 				this.closePopup()
 				/* eslint-disable */
-				TweenLite.to(this, 0.6, {
+				TweenLite.to(this, 0.7, {
 					radius: 0,
 					ease: Quint.easeOut,
 					delay: 0.2,
@@ -145,7 +146,7 @@ export default {
 			this.animation = requestAnimationFrame(this.update)
 			this.isAnim = true
 			/* eslint-disable */
-			TweenLite.to(this, 1.0, { radius: this.targetRadius, ease: Quint.easeOut,
+			TweenLite.to(this, 1.1, { radius: this.targetRadius, ease: Quint.easeOut,
 				 onStart: () => {
 					this.isAnim = true;
 				},
@@ -216,8 +217,16 @@ $duration = 1.2s
 		top -100px
 		right -100px
 		size 50px
-		border 2px solid #d95d13
+		color #555
+		fill currentColor
+		border 1px solid
 		border-radius 50%
+		padding 12px
+		opacity .6
+		transition opacity .2s
+
+		&:hover
+			opacity 1
 
 	&__title
 		margin-bottom 55px

@@ -63,6 +63,7 @@ export default {
 	min-height 100vh
 
 	&__content
+		padding-top 60px
 		flex 1 0 auto
 		position relative
 
