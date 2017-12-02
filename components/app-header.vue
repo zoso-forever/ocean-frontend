@@ -57,11 +57,11 @@ export default {
 	right 0
 	top 0
 	z-index 9
-	background-color #ffffff
-	transition transform .6s cubic-bezier(0.48, 0, 0.12, 1)
+	transition transform .6s cubic-bezier(0.48, 0, 0.12, 1), background-color .4s linear
 
 	&.maximized
 		box-shadow 0 2px 2px -2px rgba(0, 0, 0, .17)
+		background-color #ffffff
 		// border-bottom 1px solid #878787
 
 	&.hidden

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="pattern-0" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse" viewBox="0 0 100 100">
+      <path d="M 0 0 L 50 0 L 50 100 L 0 100 Z" style="fill: black;"/>
+    </pattern>
+  </defs>
+  <path style="stroke: rgb(0, 0, 0); fill: rgb(85, 196, 218); fill-opacity: 0.32; stroke-opacity: 0;" transform="matrix(0.999994, 0.003342, -0.003342, 0.999994, 0, 0)"/>
+  <path style="stroke: rgb(0, 0, 0); fill: rgb(157, 238, 238); stroke-width: 0;" d="M 133.092 39.036" transform="matrix(0.999995, 0.003312, -0.003312, 0.999995, 0.129998, -0.440522)"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 120.239 23.771"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 121.077 29.909"/>
+  <path style="stroke: rgb(0, 0, 0); stroke-width: 0; fill: rgb(149, 229, 233); fill-opacity: 0.36;" d="M -0.099 7.765 C 14.388 1.486 25.977 1.673 34.67 8.328 C 44.373 15.754 56.477 14.163 70.98 3.548 C 78.871 -2.229 88.451 -0.308 99.72 9.311 L 99.72 89.731 C 92.337 96.246 82.617 96.198 70.56 89.591 C 60.171 83.897 48.488 85.818 35.511 95.354 C 25.656 102.597 13.786 99.693 -0.099 86.638 L -0.099 7.765 Z"/>
+</svg>

@@ -7,7 +7,6 @@ const pageColors = {
 }
 
 export default (context) => {
-	console.log(context)
 	const page = context.route.name
 	eventBus.$emit('routeChanged', {state: true, color: pageColors[page]})
 }

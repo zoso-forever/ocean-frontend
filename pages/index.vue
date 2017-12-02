@@ -1,6 +1,11 @@
 <template>
 	<section :class='{isLoaded: isLoaded}' class="main-page">
 		<div class="container">
+			<div class="clouds">
+				<img class='cloud-1' src="~/assets/images/cool-cloud.svg" role='presentational'>
+				<img class='cloud-2' src="~/assets/images/cool-cloud.svg" role='presentational'>
+				<img class='cloud-3' src="~/assets/images/cool-cloud.svg" role='presentational'>
+			</div>
 			<img src="~/assets/images/cat1.jpg" alt="" class="main-page__img">
 			<h1 class='main-page__title'>Океан путешествий</h1>
 			<div class="main-page__list">
@@ -40,6 +45,33 @@ export default {
 <style lang='stylus'>
 @require '~assets/styles/global.styl'
 
+.clouds
+	position absolute
+	top 80px
+	left 50%
+	transform translateX(-50%)
+	width 1000px
+
+.cloud-1
+.cloud-2
+.cloud-3
+	position absolute
+
+.cloud-1
+	left 0
+	top 48px
+	width 200px
+
+.cloud-2
+	left 380px
+	top 17px
+	width 280px
+
+.cloud-3
+	right 10px
+	top 30px
+	width 220px
+
 .main-page
 	margin-top 120px
 	// background-color #cd9f93
@@ -47,6 +79,7 @@ export default {
 	.container
 		max-width 1020px
 		margin-x auto
+		padding-top 50px
 
 	&__title
 		opacity 0
@@ -62,6 +95,7 @@ export default {
 		display block
 		height auto
 		margin-x auto
+		margin-top 50px
 		margin-bottom 35px
 		transform translateY(50px)
 		opacity 0
